@@ -42,17 +42,5 @@
     </p>
     <p>© 2025 Insta Studio. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Generate or retrieve unique ID
-    let uniqueId = sessionStorage.getItem('uniqueId') || Math.random().toString(36).substring(2, 10);
-    sessionStorage.setItem('uniqueId', uniqueId);
-
-    // Update footer links
-    document.querySelectorAll('footer a').forEach(link => {
-      const page = link.getAttribute('href').replace('.html', '');
-      link.href = `/#/${uniqueId}/${page}`;
-    });
-  </script>
 </body>
 </html>
