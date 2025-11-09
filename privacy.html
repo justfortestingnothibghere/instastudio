@@ -10,6 +10,8 @@
     body{font-family:'Courier New',monospace;background:linear-gradient(180deg,#ffb347,#ffcc33);color:#222;text-align:center;margin:0;padding:3rem;}
     .box{background:#fff7e6;padding:2rem;border-radius:20px;max-width:700px;margin:auto;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
     h1{font-size:1.6rem;margin-bottom:1rem;}
+    footer {margin-top: 50px;font-size: 14px;color: #777;}
+    footer a {color: #ff4b8a;text-decoration: none;margin: 0 6px;}
   </style>
 </head>
 <body>
@@ -23,5 +25,29 @@
     </ul>
     <p>By continuing, you agree to follow fair usage and community guidelines.</p>
   </div>
+
+  <footer>
+    <p>
+      <a href="index.html">Home</a> •
+      <a href="privacy.html">Privacy</a> •
+      <a href="terms.html">Terms</a> •
+      <a href="contact.html">Contact</a> •
+      <a href="donate.html">Donate</a> •
+      <a href="rate.html">Rate</a>
+    </p>
+    <p>© 2025 Insta Studio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Generate or retrieve unique ID
+    let uniqueId = sessionStorage.getItem('uniqueId') || Math.random().toString(36).substring(2, 10);
+    sessionStorage.setItem('uniqueId', uniqueId);
+
+    // Update footer links
+    document.querySelectorAll('footer a').forEach(link => {
+      const page = link.getAttribute('href').replace('.html', '');
+      link.href = `/#/${uniqueId}/${page}`;
+    });
+  </script>
 </body>
 </html>
