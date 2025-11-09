@@ -154,12 +154,34 @@
 
   <footer>
     <p>
-      <a href="privacy.html">Privacy</a> •
-      <a href="terms.html">Terms</a> •
-      <a href="contact.html">Contact</a> •
-      <a href="donate.html">Donate</a>
+      <a href="index.html" data-link="home">Home</a> •
+      <a href="privacy.html" data-link="privacy">Privacy</a> •
+      <a href="terms.html" data-link="terms">Terms</a> •
+      <a href="contact.html" data-link="contact">Contact</a> •
+      <a href="donate.html" data-link="donate">Donate</a> •
+      <a href="rate.html" data-link="rate">Rate</a>
     </p>
     <p>© 2025 Insta Studio. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Generate a unique ID
+    function generateUniqueId() {
+      return Math.random().toString(36).substring(2, 10);
+    }
+
+    // Get or set unique ID in sessionStorage
+    let uniqueId = sessionStorage.getItem('uniqueId');
+    if (!uniqueId) {
+      uniqueId = generateUniqueId();
+      sessionStorage.setItem('uniqueId', uniqueId);
+    }
+
+    // Update footer links with unique ID
+    document.querySelectorAll('footer a[data-link]').forEach(link => {
+      const page = link.getAttribute('data-link');
+      link.href = `/#/${uniqueId}/${page}`;
+    });
+  </script>
 </body>
 </html>
